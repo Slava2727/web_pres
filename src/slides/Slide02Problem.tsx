@@ -1,19 +1,24 @@
 import { motion } from 'framer-motion'
-import { AlertTriangle, Clock, DollarSign, Users, Database, TrendingDown } from 'lucide-react'
+import { AlertTriangle, Clock, DollarSign, Users, TrendingDown, TrendingUp } from 'lucide-react'
 
 const problems = [
   {
     icon: Clock,
-    title: 'Потеря лидов',
-    description: 'Клиент уходит, если ему не ответили моментально — особенно вечером и в выходные',
+    title: 'Теряем самых целевых',
+    lead: 'Конверсия падает, если не отвечаем быстро',
+    points: [
+      'Сайт работает 24/7, а ваши сотрудники — с 9 до 18',
+      'Пик обращений ≠ пик доступности операторов',
+    ],
     color: 'text-red-400',
     bgColor: 'bg-red-500/10',
     borderColor: 'border-red-500/20',
   },
   {
     icon: DollarSign,
-    title: 'Нагрузка на ФОТ',
-    description: 'Операторы тратят 80% времени на «Где мой заказ?» и «Есть ли размер?»',
+    title: 'Дорогие люди на дешевых задачах',
+    lead: 'Квалифицированные продавцы тратят до 70% времени на типовые вопросы',
+    points: ['«Где мой заказ?» и «До скольки работаете?»'],
     color: 'text-orange-400',
     bgColor: 'bg-orange-500/10',
     borderColor: 'border-orange-500/20',
@@ -21,15 +26,18 @@ const problems = [
   {
     icon: Users,
     title: 'Человеческий фактор',
-    description: 'Ошибки в характеристиках товара, разный Tone of Voice, выгорание сотрудников',
+    points: ['Забывают ап-сейл или рассказать про акцию', 'Качество общения «по настроению»'],
     color: 'text-yellow-400',
     bgColor: 'bg-yellow-500/10',
     borderColor: 'border-yellow-500/20',
   },
   {
-    icon: Database,
-    title: 'Разрыв данных',
-    description: 'Оператор не видит историю клиента или долго ищет её в CRM',
+    icon: TrendingUp,
+    title: 'Сложно масштабироваться',
+    points: [
+      'Распродажа, сезон или удачная кампания',
+      'Но как быстро нанять и обучить людей?',
+    ],
     color: 'text-purple-400',
     bgColor: 'bg-purple-500/10',
     borderColor: 'border-purple-500/20',
@@ -76,7 +84,7 @@ export default function Slide02Problem() {
             <span className="text-red-400 font-medium uppercase tracking-wider text-sm">Проблематика</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            «Дырявое ведро» коммуникаций
+            Теряем выручку и раздуваем затраты
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl">
             Где E-commerce теряет деньги прямо сейчас?
@@ -102,13 +110,21 @@ export default function Slide02Problem() {
                   <div className={`p-3 rounded-xl ${problem.bgColor}`}>
                     <Icon className={`w-6 h-6 ${problem.color}`} />
                   </div>
-                  <div>
+                  <div className="space-y-3">
                     <h3 className="text-xl font-semibold text-slate-900 mb-2">
                       {problem.title}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {problem.description}
+                    <p className="text-slate-700 leading-relaxed">
+                      {problem.lead}
                     </p>
+                    <ul className="text-slate-600 leading-relaxed space-y-1">
+                      {problem.points.map((point, pointIndex) => (
+                        <li key={pointIndex} className="flex gap-2">
+                          <span className="text-slate-400">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </motion.div>

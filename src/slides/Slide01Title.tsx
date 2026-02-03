@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion'
-import { Bot, Sparkles, TrendingUp, Users } from 'lucide-react'
+import { Sparkles, TrendingUp, Users } from 'lucide-react'
+
+import naimiLogo from '../assets/Naimi_logo.svg'
+import logoGoldenApple from '../assets/logo_ga.png'
+import logoOkko from '../assets/logo_okko.svg'
+import logo12Storeez from '../assets/logo_12st.png'
+import logoMotul from '../assets/logo_motul.png'
 
 export default function Slide01Title() {
   return (
@@ -28,10 +34,15 @@ export default function Slide01Title() {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center gap-3 mb-8"
         >
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shadow-lg shadow-sky-500/30">
-            <Bot className="w-8 h-8 text-white" />
+          <div className="w-14 h-14 rounded-2xl bg-white/90 border border-slate-200/80 flex items-center justify-center shadow-lg shadow-slate-900/5 backdrop-blur-sm">
+            <img
+              src={naimiLogo}
+              alt="NaimiAI"
+              className="w-9 h-9 object-contain"
+              draggable={false}
+            />
           </div>
-          <span className="text-3xl font-bold text-slate-900">naimi.ai</span>
+          <span className="text-3xl font-bold text-slate-900">NaimiAI.ru</span>
         </motion.div>
 
         {/* Main heading */}
@@ -41,10 +52,7 @@ export default function Slide01Title() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight"
         >
-          Наймите{' '}
-          <span className="gradient-text">ИИ-сотрудников</span>
-          <br />
-          для вашего интернет-магазина
+          <span className="gradient-text">ИИ-сотрудники</span> для онлайн-торговли
         </motion.h1>
 
         {/* Subtitle */}
@@ -85,15 +93,32 @@ export default function Slide01Title() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-slate-500"
         >
-          <p className="text-sm uppercase tracking-wider mb-4">Нам доверяют</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 text-slate-500">
-            <span className="text-lg font-semibold">Золотое Яблоко</span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span className="text-lg font-semibold">Okko</span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span className="text-lg font-semibold">12 Storeez</span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span className="text-lg font-semibold">Motul</span>
+          <p className="text-sm uppercase tracking-wider mb-4">Внедряем чат-коммуникации с 2015 года</p>
+          <div className="flex flex-wrap justify-center items-center gap-10">
+            <img
+              src={logoGoldenApple}
+              alt="Золотое Яблоко"
+              className="h-7 md:h-8 w-auto object-contain opacity-80"
+              draggable={false}
+            />
+            <img
+              src={logoOkko}
+              alt="Okko"
+              className="h-6 md:h-7 w-auto object-contain opacity-80"
+              draggable={false}
+            />
+            <img
+              src={logo12Storeez}
+              alt="12 Storeez"
+              className="h-6 md:h-7 w-auto object-contain opacity-80"
+              draggable={false}
+            />
+            <img
+              src={logoMotul}
+              alt="Motul"
+              className="h-7 md:h-8 w-auto object-contain opacity-80"
+              draggable={false}
+            />
           </div>
         </motion.div>
       </div>
