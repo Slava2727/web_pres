@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { Network, Bot, Package, HeadphonesIcon, Database, ArrowRight, Zap } from 'lucide-react'
+import { Bot, Package, HeadphonesIcon, Database } from 'lucide-react'
 
 const subAgents = [
   {
-    name: 'Product Agent',
+    name: 'Агент консультант',
     description: 'Каталог, размеры, наличие',
     icon: Package,
     color: 'text-emerald-400',
@@ -11,7 +11,7 @@ const subAgents = [
     borderColor: 'border-emerald-500/30',
   },
   {
-    name: 'Service Agent',
+    name: 'Сервисный агент',
     description: 'Доставка, возврат, лояльность',
     icon: HeadphonesIcon,
     color: 'text-blue-400',
@@ -19,7 +19,7 @@ const subAgents = [
     borderColor: 'border-blue-500/30',
   },
   {
-    name: 'CRM Agent',
+    name: 'CRM Агент',
     description: 'Клиенты, заказы, статусы',
     icon: Database,
     color: 'text-purple-400',
@@ -51,15 +51,11 @@ export default function Slide04Architecture() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 mb-6">
-            <Network className="w-4 h-4" />
-            <span className="text-sm font-medium">Архитектура</span>
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Мультиагентная система
           </h2>
-          <p className="text-xl text-slate-600">
-            Как они работают вместе? Система Оркестратора.
+          <p className="text-slate-600 text-base md:text-lg">
+            Каждый агент отвечает только за свою зону → нет галлюцинаций → выше точность
           </p>
         </motion.div>
 
@@ -100,15 +96,30 @@ export default function Slide04Architecture() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="flex justify-center mb-4"
+            className="relative mb-6 h-14"
           >
-            <div className="flex items-center gap-2 text-slate-600">
-              <div className="w-16 h-px bg-gradient-to-r from-transparent to-sky-500/50" />
-              <ArrowRight className="w-4 h-4 text-sky-500" />
-              <span className="text-sm px-3 py-1 rounded-full bg-white/70 border border-slate-200/80 text-slate-600">запросы</span>
-              <ArrowRight className="w-4 h-4 text-sky-500" />
-              <div className="w-16 h-px bg-gradient-to-l from-transparent to-sky-500/50" />
-            </div>
+            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 600 120" preserveAspectRatio="xMidYMin meet">
+              <defs>
+                <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.5" />
+                </linearGradient>
+                <marker
+                  id="arrowHead"
+                  markerWidth="6"
+                  markerHeight="6"
+                  refX="5"
+                  refY="3"
+                  orient="auto"
+                  markerUnits="strokeWidth"
+                >
+                  <path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8" fillOpacity="0.85" />
+                </marker>
+              </defs>
+              <line x1="300" y1="10" x2="90" y2="110" stroke="url(#arrowGradient)" strokeWidth="2" strokeLinecap="butt" vectorEffect="non-scaling-stroke" markerEnd="url(#arrowHead)" />
+              <line x1="300" y1="10" x2="300" y2="110" stroke="#38bdf8" strokeWidth="2.4" strokeLinecap="butt" vectorEffect="non-scaling-stroke" markerEnd="url(#arrowHead)" />
+              <line x1="300" y1="10" x2="510" y2="110" stroke="url(#arrowGradient)" strokeWidth="2" strokeLinecap="butt" vectorEffect="non-scaling-stroke" markerEnd="url(#arrowHead)" />
+            </svg>
           </motion.div>
 
           {/* Sub-agents */}
@@ -142,20 +153,6 @@ export default function Slide04Architecture() {
             })}
           </motion.div>
 
-          {/* Key benefit */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-            className="mt-8 flex items-center justify-center"
-          >
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <Zap className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-400 font-medium">
-                Каждый агент отвечает только за свою зону → нет галлюцинаций → выше точность
-              </span>
-            </div>
-          </motion.div>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Sparkles, Users, Wand2, DatabaseZap } from 'lucide-react'
 
+import illustration3 from '../assets/illustration3.jpeg'
+
 const theses = [
   {
     icon: Users,
@@ -49,6 +51,17 @@ export default function Slide03Solution() {
             className="rounded-3xl border border-slate-200 bg-white/70 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-center"
           >
             <div className="space-y-8">
+              <div className="relative h-32 md:h-36 rounded-2xl overflow-hidden">
+                <img
+                  src={illustration3}
+                  alt="Иллюстрация решения"
+                  className="w-full h-full object-cover object-top scale-[1.03]"
+                  draggable={false}
+                />
+                <div className="pointer-events-none absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white/80 to-white/0" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/0 via-white/10 to-white/80" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-white/0 to-white/90" />
+              </div>
               {theses.map((t, idx) => {
                 const Icon = t.icon
                 return (

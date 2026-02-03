@@ -7,8 +7,8 @@ const problems = [
     title: 'Теряем самых целевых',
     lead: 'Конверсия падает, если не отвечаем быстро',
     points: [
-      'Сайт работает 24/7, а ваши сотрудники — с 9 до 18',
-      'Пик обращений ≠ пик доступности операторов',
+      'Сайт работает 24/7, а  сотрудники с 9 до 18',
+      'Пик обращений ≠ пик доступности менеджеров',
     ],
     color: 'text-red-400',
     bgColor: 'bg-red-500/10',
@@ -84,11 +84,8 @@ export default function Slide02Problem() {
             <span className="text-red-400 font-medium uppercase tracking-wider text-sm">Проблематика</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Теряем выручку и раздуваем затраты
+          Где онлайн-ритейл теряет деньги прямо сейчас?
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl">
-            Где E-commerce теряет деньги прямо сейчас?
-          </p>
         </motion.div>
 
         {/* Problem cards */}
