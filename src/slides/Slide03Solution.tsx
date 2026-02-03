@@ -7,8 +7,8 @@ const comparison = [
     title: 'Обычный чат-бот',
     items: ['Кнопочное меню', 'Скриптовые ответы', '"Не понял вопрос"', 'Раздражает клиентов'],
     color: 'text-slate-500',
-    bgColor: 'bg-slate-800/50',
-    borderColor: 'border-slate-700',
+    bgColor: 'bg-white/70',
+    borderColor: 'border-slate-200/80',
   },
   {
     type: 'new',
@@ -40,7 +40,7 @@ const keyPoints = [
 
 export default function Slide03Solution() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-500/5 rounded-full blur-3xl" />
       
@@ -55,7 +55,7 @@ export default function Slide03Solution() {
             <Sparkles className="w-4 h-4" />
             <span className="text-sm font-medium">Решение</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Это не чат-бот.
             <br />
             <span className="gradient-text">Это ваш новый цифровой департамент.</span>
@@ -78,7 +78,7 @@ export default function Slide03Solution() {
                   ) : (
                     <Bot className={`w-6 h-6 ${item.color}`} />
                   )}
-                  <h3 className={`text-xl font-semibold ${item.type === 'new' ? 'text-white' : 'text-slate-400'}`}>
+                  <h3 className={`text-xl font-semibold ${item.type === 'new' ? 'text-slate-900' : 'text-slate-600'}`}>
                     {item.title}
                   </h3>
                 </div>
@@ -88,9 +88,9 @@ export default function Slide03Solution() {
                       {item.type === 'new' ? (
                         <CheckCircle className="w-5 h-5 text-sky-400 flex-shrink-0" />
                       ) : (
-                        <span className="w-5 h-5 flex items-center justify-center text-slate-600">✕</span>
+                        <span className="w-5 h-5 flex items-center justify-center text-slate-400">✕</span>
                       )}
-                      <span className={item.type === 'new' ? 'text-slate-300' : 'text-slate-500'}>
+                      <span className={item.type === 'new' ? 'text-slate-700' : 'text-slate-600'}>
                         {listItem}
                       </span>
                     </li>
@@ -120,8 +120,8 @@ export default function Slide03Solution() {
                 <div className="inline-flex p-3 rounded-xl bg-sky-500/10 mb-4">
                   <Icon className="w-6 h-6 text-sky-400" />
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{point.title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">{point.description}</p>
+                <h4 className="text-lg font-semibold text-slate-900 mb-2">{point.title}</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">{point.description}</p>
               </div>
             )
           })}

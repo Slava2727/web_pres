@@ -112,7 +112,7 @@ function App() {
   const CurrentSlideComponent = slides[currentSlide]
 
   return (
-    <div className="h-screen w-screen bg-slate-950 overflow-hidden relative">
+    <div className="h-screen w-screen bg-slate-50 overflow-hidden relative">
       {/* Slide Container */}
       <div className="h-full w-full relative">
         <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -136,24 +136,24 @@ function App() {
 
       {/* Navigation Controls */}
       <div className="absolute bottom-0 left-0 right-0 z-50">
-        <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-black/50 to-transparent">
+        <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-slate-100/90 to-transparent">
           {/* Left side: First/Previous */}
           <div className="flex items-center gap-2">
             <button
               onClick={goToFirst}
               disabled={currentSlide === 0}
-              className="p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+              className="p-3 rounded-xl bg-white/70 border border-slate-200/80 backdrop-blur-sm hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
               title="В начало (Home)"
             >
-              <ChevronsLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+              <ChevronsLeft className="w-5 h-5 text-slate-900 group-hover:scale-110 transition-transform" />
             </button>
             <button
               onClick={prevSlide}
               disabled={currentSlide === 0}
-              className="p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+              className="p-3 rounded-xl bg-white/70 border border-slate-200/80 backdrop-blur-sm hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
               title="Назад (←)"
             >
-              <ChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+              <ChevronLeft className="w-5 h-5 text-slate-900 group-hover:scale-110 transition-transform" />
             </button>
           </div>
 
@@ -166,7 +166,7 @@ function App() {
                 className={`transition-all duration-300 rounded-full ${
                   index === currentSlide
                     ? 'w-8 h-2 bg-sky-400'
-                    : 'w-2 h-2 bg-white/30 hover:bg-white/50'
+                    : 'w-2 h-2 bg-slate-400/40 hover:bg-slate-400/60'
                 }`}
                 title={`Слайд ${index + 1}`}
               />
@@ -178,18 +178,18 @@ function App() {
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
-              className="p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+              className="p-3 rounded-xl bg-white/70 border border-slate-200/80 backdrop-blur-sm hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
               title="Вперёд (→)"
             >
-              <ChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+              <ChevronRight className="w-5 h-5 text-slate-900 group-hover:scale-110 transition-transform" />
             </button>
             <button
               onClick={goToLast}
               disabled={currentSlide === slides.length - 1}
-              className="p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
+              className="p-3 rounded-xl bg-white/70 border border-slate-200/80 backdrop-blur-sm hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 group"
               title="В конец (End)"
             >
-              <ChevronsRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+              <ChevronsRight className="w-5 h-5 text-slate-900 group-hover:scale-110 transition-transform" />
             </button>
           </div>
         </div>
@@ -197,7 +197,7 @@ function App() {
 
       {/* Slide counter */}
       <div className="absolute top-6 right-8 z-50">
-        <div className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/70 text-sm font-medium">
+        <div className="px-4 py-2 rounded-full bg-white/80 border border-slate-200/80 backdrop-blur-sm text-slate-600 text-sm font-medium">
           {currentSlide + 1} / {slides.length}
         </div>
       </div>

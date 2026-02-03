@@ -30,7 +30,7 @@ const subAgents = [
 
 export default function Slide04Architecture() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background connections visualization */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full">
@@ -55,10 +55,10 @@ export default function Slide04Architecture() {
             <Network className="w-4 h-4" />
             <span className="text-sm font-medium">Архитектура</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Мультиагентная система
           </h2>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-600">
             Как они работают вместе? Система Оркестратора.
           </p>
         </motion.div>
@@ -79,11 +79,11 @@ export default function Slide04Architecture() {
                     <Bot className="w-10 h-10 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Оркестратор</h3>
-                    <p className="text-slate-400">Главный агент</p>
+                    <h3 className="text-2xl font-bold text-slate-900">Оркестратор</h3>
+                    <p className="text-slate-600">Главный агент</p>
                   </div>
                 </div>
-                <div className="mt-4 space-y-2 text-sm text-slate-400">
+                <div className="mt-4 space-y-2 text-sm text-slate-600">
                   <p>• Ведёт диалог с клиентом</p>
                   <p>• Понимает намерение</p>
                   <p>• Распределяет задачи</p>
@@ -102,10 +102,10 @@ export default function Slide04Architecture() {
             transition={{ delay: 0.4 }}
             className="flex justify-center mb-4"
           >
-            <div className="flex items-center gap-2 text-slate-500">
+            <div className="flex items-center gap-2 text-slate-600">
               <div className="w-16 h-px bg-gradient-to-r from-transparent to-sky-500/50" />
               <ArrowRight className="w-4 h-4 text-sky-500" />
-              <span className="text-sm px-3 py-1 rounded-full bg-slate-800 text-slate-400">запросы</span>
+              <span className="text-sm px-3 py-1 rounded-full bg-white/70 border border-slate-200/80 text-slate-600">запросы</span>
               <ArrowRight className="w-4 h-4 text-sky-500" />
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-sky-500/50" />
             </div>
@@ -133,8 +133,8 @@ export default function Slide04Architecture() {
                       <Icon className={`w-6 h-6 ${agent.color}`} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white">{agent.name}</h4>
-                      <p className="text-sm text-slate-400">{agent.description}</p>
+                      <h4 className="font-semibold text-slate-900">{agent.name}</h4>
+                      <p className="text-sm text-slate-600">{agent.description}</p>
                     </div>
                   </div>
                 </motion.div>

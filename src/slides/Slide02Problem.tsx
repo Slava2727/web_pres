@@ -51,7 +51,7 @@ const item = {
 
 export default function Slide02Problem() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background effect - leaking bucket visualization */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-b from-red-500/30 via-orange-500/20 to-transparent rounded-t-full" />
@@ -75,10 +75,10 @@ export default function Slide02Problem() {
             </div>
             <span className="text-red-400 font-medium uppercase tracking-wider text-sm">Проблематика</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             «Дырявое ведро» коммуникаций
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl">
+          <p className="text-xl text-slate-600 max-w-2xl">
             Где E-commerce теряет деньги прямо сейчас?
           </p>
         </motion.div>
@@ -103,10 +103,10 @@ export default function Slide02Problem() {
                     <Icon className={`w-6 h-6 ${problem.color}`} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
+                    <h3 className="text-xl font-semibold text-slate-900 mb-2">
                       {problem.title}
                     </h3>
-                    <p className="text-slate-400 leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       {problem.description}
                     </p>
                   </div>
@@ -121,7 +121,7 @@ export default function Slide02Problem() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-8 flex items-center justify-center gap-4 text-slate-500"
+          className="mt-8 flex items-center justify-center gap-4 text-slate-600"
         >
           <TrendingDown className="w-5 h-5 text-red-400" />
           <span>Каждый из этих факторов снижает конверсию и увеличивает расходы</span>

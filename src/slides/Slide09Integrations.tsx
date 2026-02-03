@@ -35,7 +35,7 @@ const mcpActions = [
 
 export default function Slide09Integrations() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background connection lines */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full">
@@ -59,10 +59,10 @@ export default function Slide09Integrations() {
             <Plug className="w-4 h-4" />
             <span className="text-sm font-medium">Интеграции</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Встраиваемся в ваш IT-ландшафт
           </h2>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-600">
             Готовые коннекторы и MCP для управления вашими системами
           </p>
         </motion.div>
@@ -74,10 +74,10 @@ export default function Slide09Integrations() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="p-6 rounded-2xl bg-slate-800/30 border border-slate-700/50">
+            <div className="p-6 rounded-2xl bg-white/80 border border-slate-200/80">
               <div className="flex items-center gap-3 mb-6">
                 <MessageCircle className="w-6 h-6 text-sky-400" />
-                <h3 className="text-xl font-semibold text-white">Каналы связи</h3>
+                <h3 className="text-xl font-semibold text-slate-900">Каналы связи</h3>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-6">
@@ -87,15 +87,15 @@ export default function Slide09Integrations() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 + index * 0.05 }}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/80 border border-slate-200/80 hover:border-slate-300 transition-colors"
                   >
                     <div className={`w-3 h-3 rounded-full ${channel.color}`} />
-                    <span className="text-slate-300 text-sm font-medium">{channel.name}</span>
+                    <span className="text-slate-700 text-sm font-medium">{channel.name}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <p className="text-sm text-slate-500 flex items-center gap-2">
+              <p className="text-sm text-slate-600 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-emerald-400" />
                 И ещё десятки каналов через партнёрские интеграции
               </p>
@@ -112,8 +112,8 @@ export default function Slide09Integrations() {
               <div className="flex items-center gap-3 mb-6">
                 <Settings className="w-6 h-6 text-purple-400" />
                 <div>
-                  <h3 className="text-xl font-semibold text-white">MCP — Model Context Protocol</h3>
-                  <p className="text-sm text-slate-400">ИИ не просто «болтает», он управляет системами</p>
+                  <h3 className="text-xl font-semibold text-slate-900">MCP — Model Context Protocol</h3>
+                  <p className="text-sm text-slate-600">ИИ не просто «болтает», он управляет системами</p>
                 </div>
               </div>
               
@@ -124,12 +124,12 @@ export default function Slide09Integrations() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
-                    className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 border border-slate-700/50"
+                    className="flex items-center gap-4 p-3 rounded-xl bg-white/80 border border-slate-200/80"
                   >
                     <span className="text-2xl">{action.icon}</span>
                     <div>
-                      <div className="text-white font-medium">{action.action}</div>
-                      <div className="text-xs text-slate-500">{action.example}</div>
+                      <div className="text-slate-900 font-medium">{action.action}</div>
+                      <div className="text-xs text-slate-600">{action.example}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -145,14 +145,14 @@ export default function Slide09Integrations() {
           transition={{ delay: 0.7 }}
           className="mt-8"
         >
-          <div className="p-6 rounded-2xl bg-slate-800/30 border border-slate-700/50">
+          <div className="p-6 rounded-2xl bg-white/80 border border-slate-200/80">
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-xl bg-amber-500/10">
                 <Users className="w-6 h-6 text-amber-400" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white mb-1">Режим суфлёра</h4>
-                <p className="text-slate-400 text-sm">
+                <h4 className="text-lg font-semibold text-slate-900 mb-1">Режим суфлёра</h4>
+                <p className="text-slate-600 text-sm">
                   Для B2B продаж: ИИ подсказывает менеджеру ответ, менеджер правит и отправляет. 
                   Идеально для сложных переговоров.
                 </p>

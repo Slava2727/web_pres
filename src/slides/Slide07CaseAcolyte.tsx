@@ -24,7 +24,7 @@ const beforeAfter = {
 
 export default function Slide07CaseAcolyte() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background success glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-3xl" />
       
@@ -39,10 +39,10 @@ export default function Slide07CaseAcolyte() {
             <Trophy className="w-4 h-4" />
             <span className="text-sm font-medium">Главный кейс</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Кейс «Аколит» — Online Retail
           </h2>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-600">
             Результаты внедрения мультиагентной системы
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function Slide07CaseAcolyte() {
           <div className="relative px-12 py-8 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-emerald-500/20 to-emerald-500/10 border border-emerald-500/30">
             <div className="text-center">
               <div className="text-7xl md:text-8xl font-bold text-emerald-400 mb-2">88%</div>
-              <div className="text-xl text-white">диалогов решаются без участия человека</div>
+              <div className="text-xl text-slate-900">диалогов решаются без участия человека</div>
             </div>
             {/* Glow */}
             <div className="absolute -inset-2 bg-emerald-500/10 rounded-3xl blur-2xl -z-10" />
@@ -74,10 +74,10 @@ export default function Slide07CaseAcolyte() {
           {metrics.map((metric, index) => {
             const Icon = metric.icon
             return (
-              <div key={index} className="text-center p-6 rounded-2xl bg-slate-800/30 border border-slate-700/50">
+              <div key={index} className="text-center p-6 rounded-2xl bg-white/80 border border-slate-200/80">
                 <Icon className={`w-8 h-8 ${metric.color} mx-auto mb-3`} />
                 <div className={`text-3xl font-bold ${metric.color} mb-1`}>{metric.value}</div>
-                <div className="text-sm text-slate-400">{metric.label}</div>
+                <div className="text-sm text-slate-600">{metric.label}</div>
               </div>
             )
           })}
@@ -99,7 +99,7 @@ export default function Slide07CaseAcolyte() {
             </div>
             <ul className="space-y-3">
               {beforeAfter.before.map((item, index) => (
-                <li key={index} className="flex items-center gap-3 text-slate-400">
+                <li key={index} className="flex items-center gap-3 text-slate-600">
                   <span className="w-5 h-5 flex items-center justify-center text-red-400">✕</span>
                   {item}
                 </li>
@@ -116,7 +116,7 @@ export default function Slide07CaseAcolyte() {
             </div>
             <ul className="space-y-3">
               {beforeAfter.after.map((item, index) => (
-                <li key={index} className="flex items-center gap-3 text-slate-300">
+                <li key={index} className="flex items-center gap-3 text-slate-700">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                   {item}
                 </li>

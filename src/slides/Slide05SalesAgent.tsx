@@ -33,7 +33,7 @@ const chatMessages = [
 
 export default function Slide05SalesAgent() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/5 to-transparent" />
       
@@ -51,10 +51,10 @@ export default function Slide05SalesAgent() {
                 <ShoppingCart className="w-4 h-4" />
                 <span className="text-sm font-medium">Роль 1</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                 Агент-консультант
               </h2>
-              <p className="text-xl text-slate-400">
+              <p className="text-xl text-slate-600">
                 Продажи 24/7. Консультация, подбор, upsell.
               </p>
             </motion.div>
@@ -74,14 +74,14 @@ export default function Slide05SalesAgent() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-emerald-500/30 transition-colors"
+                    className="flex items-start gap-4 p-4 rounded-xl bg-white/80 border border-slate-200/80 hover:border-emerald-500/30 transition-colors"
                   >
                     <div className="p-2 rounded-lg bg-emerald-500/10">
                       <Icon className="w-5 h-5 text-emerald-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white mb-1">{feature.title}</h4>
-                      <p className="text-sm text-slate-400">{feature.description}</p>
+                      <h4 className="font-semibold text-slate-900 mb-1">{feature.title}</h4>
+                      <p className="text-sm text-slate-600">{feature.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -97,14 +97,14 @@ export default function Slide05SalesAgent() {
             className="relative"
           >
             {/* Chat window */}
-            <div className="bg-slate-900/80 rounded-3xl border border-slate-700/50 overflow-hidden shadow-2xl">
+            <div className="bg-white/90 rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xl">
               {/* Chat header */}
-              <div className="px-6 py-4 border-b border-slate-700/50 flex items-center gap-3">
+              <div className="px-6 py-4 border-b border-slate-200/80 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
                   <ShoppingCart className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">ИИ-консультант</h4>
+                  <h4 className="font-semibold text-slate-900">ИИ-консультант</h4>
                   <p className="text-xs text-emerald-400">Онлайн</p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function Slide05SalesAgent() {
                       className={`max-w-[85%] px-4 py-3 rounded-2xl ${
                         msg.type === 'user'
                           ? 'bg-sky-500 text-white rounded-br-md'
-                          : 'bg-slate-800 text-slate-200 rounded-bl-md'
+                          : 'bg-slate-100 text-slate-700 rounded-bl-md'
                       }`}
                     >
                       <p className="text-sm leading-relaxed">{msg.text}</p>
@@ -133,9 +133,9 @@ export default function Slide05SalesAgent() {
               </div>
 
               {/* Input area */}
-              <div className="px-6 py-4 border-t border-slate-700/50">
+              <div className="px-6 py-4 border-t border-slate-200/80">
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 px-4 py-3 rounded-full bg-slate-800 text-slate-500 text-sm">
+                  <div className="flex-1 px-4 py-3 rounded-full bg-slate-100 text-slate-600 text-sm">
                     Введите сообщение...
                   </div>
                   <button className="p-3 rounded-full bg-emerald-500 text-white">

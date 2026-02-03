@@ -34,7 +34,7 @@ const workflow = [
 
 export default function Slide06ServiceAgent() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background accent */}
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/5 to-transparent" />
       
@@ -49,10 +49,10 @@ export default function Slide06ServiceAgent() {
             <HeadphonesIcon className="w-4 h-4" />
             <span className="text-sm font-medium">Роль 2</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Сервисный агент
           </h2>
-          <p className="text-xl text-slate-400">
+          <p className="text-xl text-slate-600">
             Забота о клиенте и разгрузка линии поддержки
           </p>
         </motion.div>
@@ -66,9 +66,9 @@ export default function Slide06ServiceAgent() {
         >
           {workflow.map((item, index) => (
             <div key={index} className="flex items-center">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-slate-200/80">
                 <span className="text-lg">{item.icon}</span>
-                <span className="text-sm text-slate-300">{item.text}</span>
+                <span className="text-sm text-slate-700">{item.text}</span>
               </div>
               {index < workflow.length - 1 && (
                 <div className="w-8 h-px bg-gradient-to-r from-blue-500/50 to-blue-500/50 mx-2" />
@@ -92,7 +92,7 @@ export default function Slide06ServiceAgent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className="p-6 rounded-2xl bg-slate-800/30 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5"
+                className="p-6 rounded-2xl bg-white/80 border border-slate-200/80 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 rounded-xl bg-blue-500/10">
@@ -100,11 +100,11 @@ export default function Slide06ServiceAgent() {
                   </div>
                   <div className="text-right">
                     <div className="text-2xl font-bold text-blue-400">{feature.stat}</div>
-                    <div className="text-xs text-slate-500">{feature.statLabel}</div>
+                    <div className="text-xs text-slate-600">{feature.statLabel}</div>
                   </div>
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+                <h4 className="text-lg font-semibold text-slate-900 mb-2">{feature.title}</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             )
           })}
@@ -120,15 +120,15 @@ export default function Slide06ServiceAgent() {
           <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
             <Clock className="w-6 h-6 text-blue-400" />
             <div>
-              <div className="text-white font-medium">Снижение операционных костов</div>
-              <div className="text-sm text-slate-400">Типовые вопросы закрываются автоматически</div>
+              <div className="text-slate-900 font-medium">Снижение операционных костов</div>
+              <div className="text-sm text-slate-600">Типовые вопросы закрываются автоматически</div>
             </div>
           </div>
           <div className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20">
             <CheckCircle className="w-6 h-6 text-emerald-400" />
             <div>
-              <div className="text-white font-medium">Стабильное качество 24/7</div>
-              <div className="text-sm text-slate-400">Одинаково правильно отвечает всегда</div>
+              <div className="text-slate-900 font-medium">Стабильное качество 24/7</div>
+              <div className="text-sm text-slate-600">Одинаково правильно отвечает всегда</div>
             </div>
           </div>
         </motion.div>

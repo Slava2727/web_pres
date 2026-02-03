@@ -33,11 +33,11 @@ const problems = [
 
 export default function Slide08Technology() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(15,23,42,0.12) 1px, transparent 0)`,
           backgroundSize: '32px 32px',
         }} />
       </div>
@@ -53,10 +53,10 @@ export default function Slide08Technology() {
             <Database className="w-4 h-4" />
             <span className="text-sm font-medium">Технология</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Чистота данных
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             ИИ хорош настолько, насколько хороша ваша база данных
           </p>
         </motion.div>
@@ -71,9 +71,9 @@ export default function Slide08Technology() {
             <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/20 mb-6">
               <div className="flex items-center gap-3 mb-4">
                 <AlertTriangle className="w-6 h-6 text-red-400" />
-                <h3 className="text-xl font-semibold text-white">Проблема «грязных» данных</h3>
+                <h3 className="text-xl font-semibold text-slate-900">Проблема «грязных» данных</h3>
               </div>
-              <p className="text-slate-400 mb-4">
+              <p className="text-slate-600 mb-4">
                 В выгрузках товаров всегда есть «мусор», который мешает ИИ работать корректно:
               </p>
               <div className="flex flex-wrap gap-2">
@@ -92,9 +92,9 @@ export default function Slide08Technology() {
             <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
               <div className="flex items-center gap-3 mb-4">
                 <Sparkles className="w-6 h-6 text-emerald-400" />
-                <h3 className="text-xl font-semibold text-white">Наше решение</h3>
+                <h3 className="text-xl font-semibold text-slate-900">Наше решение</h3>
               </div>
-              <p className="text-slate-400">
+              <p className="text-slate-600">
                 Автоматический скрипт очистки и нормализации перед загрузкой в мозг ИИ. Агент работает только с актуальным стоком.
               </p>
             </div>
@@ -130,8 +130,8 @@ export default function Slide08Technology() {
                   {/* Content */}
                   <div className="flex-1 pb-4">
                     <div className="text-xs text-orange-400 font-medium mb-1">Шаг {step.step}</div>
-                    <h4 className="text-lg font-semibold text-white mb-1">{step.title}</h4>
-                    <p className="text-slate-400 text-sm">{step.description}</p>
+                    <h4 className="text-lg font-semibold text-slate-900 mb-1">{step.title}</h4>
+                    <p className="text-slate-600 text-sm">{step.description}</p>
                   </div>
                 </motion.div>
               )
@@ -147,8 +147,8 @@ export default function Slide08Technology() {
               <div className="flex items-center gap-3">
                 <CheckCircle className="w-6 h-6 text-emerald-400" />
                 <div>
-                  <div className="text-white font-medium">Результат</div>
-                  <div className="text-sm text-slate-400">Синхронизация с вашим складом по расписанию</div>
+                  <div className="text-slate-900 font-medium">Результат</div>
+                  <div className="text-sm text-slate-600">Синхронизация с вашим складом по расписанию</div>
                 </div>
               </div>
             </motion.div>

@@ -3,7 +3,7 @@ import { Bot, Sparkles, TrendingUp, Users } from 'lucide-react'
 
 export default function Slide01Title() {
   return (
-    <div className="min-h-full w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center relative overflow-hidden pb-24">
+    <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
@@ -13,9 +13,9 @@ export default function Slide01Title() {
 
       {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(15,23,42,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.08) 1px, transparent 1px)`,
           backgroundSize: '50px 50px',
         }}
       />
@@ -31,7 +31,7 @@ export default function Slide01Title() {
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shadow-lg shadow-sky-500/30">
             <Bot className="w-8 h-8 text-white" />
           </div>
-          <span className="text-3xl font-bold text-white">naimi.ai</span>
+          <span className="text-3xl font-bold text-slate-900">naimi.ai</span>
         </motion.div>
 
         {/* Main heading */}
@@ -39,7 +39,7 @@ export default function Slide01Title() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight"
         >
           Наймите{' '}
           <span className="gradient-text">ИИ-сотрудников</span>
@@ -52,7 +52,7 @@ export default function Slide01Title() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto"
         >
           Цифровой отдел продаж и заботы о клиентах для E-commerce
         </motion.p>
@@ -64,17 +64,17 @@ export default function Slide01Title() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-slate-900/5 border border-slate-200/80 backdrop-blur-sm">
             <Users className="w-5 h-5 text-sky-400" />
-            <span className="text-white font-medium">Уровень Junior/Middle</span>
+            <span className="text-slate-900 font-medium">Уровень Junior/Middle</span>
           </div>
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-slate-900/5 border border-slate-200/80 backdrop-blur-sm">
             <TrendingUp className="w-5 h-5 text-green-400" />
-            <span className="text-white font-medium">60–88% автоматизации</span>
+            <span className="text-slate-900 font-medium">60–88% автоматизации</span>
           </div>
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-slate-900/5 border border-slate-200/80 backdrop-blur-sm">
             <Sparkles className="w-5 h-5 text-purple-400" />
-            <span className="text-white font-medium">Без потери качества</span>
+            <span className="text-slate-900 font-medium">Без потери качества</span>
           </div>
         </motion.div>
 
@@ -86,13 +86,13 @@ export default function Slide01Title() {
           className="text-slate-500"
         >
           <p className="text-sm uppercase tracking-wider mb-4">Нам доверяют</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 text-slate-400">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-slate-500">
             <span className="text-lg font-semibold">Золотое Яблоко</span>
-            <span className="w-1 h-1 rounded-full bg-slate-600" />
+            <span className="w-1 h-1 rounded-full bg-slate-300" />
             <span className="text-lg font-semibold">Okko</span>
-            <span className="w-1 h-1 rounded-full bg-slate-600" />
+            <span className="w-1 h-1 rounded-full bg-slate-300" />
             <span className="text-lg font-semibold">12 Storeez</span>
-            <span className="w-1 h-1 rounded-full bg-slate-600" />
+            <span className="w-1 h-1 rounded-full bg-slate-300" />
             <span className="text-lg font-semibold">Motul</span>
           </div>
         </motion.div>
