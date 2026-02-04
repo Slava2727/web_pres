@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, FileCheck, Lock, Server, CheckCircle, ExternalLink } from 'lucide-react'
+import { FileCheck, Lock, Server, ExternalLink } from 'lucide-react'
 
 const securityPoints = [
   {
@@ -8,6 +8,20 @@ const securityPoints = [
     description: 'ООО «Лабитек Девелопмент» — зарегистрированный оператор ПДн. Подписываем поручение на обработку.',
     color: 'text-emerald-400',
     bgColor: 'bg-emerald-500/10',
+    links: [
+      {
+        text: 'Поручение на обработку перс данных',
+        url: 'https://storage.yandexcloud.net/docs.naimiai.ru/files/%D0%9F%D0%BE%D1%80%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BF%D0%B5%D1%80%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D0%9B%D0%B0%D0%B1%D0%B8%D1%82%D0%B5%D0%BA.docx',
+      },
+      {
+        text: 'Шаблон формы согласия конечного клиента',
+        url: 'https://storage.yandexcloud.net/docs.naimiai.ru/files/%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%20%D1%81%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%B8%D1%8F%20%D0%BA%D0%BE%D0%BD%D0%B5%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0.doc',
+      },
+      {
+        text: 'Проверить в реестре операторов ПДн',
+        url: 'https://reestr.digital.gov.ru/reestr/3392728/?sphrase_id=6275202',
+      },
+    ],
   },
   {
     icon: Lock,
@@ -19,7 +33,7 @@ const securityPoints = [
   {
     icon: Server,
     title: 'Enterprise опции',
-    description: 'Установка в контур компании (On-premise) и использование локальных моделей (GigaChat и др.)',
+    description: 'Установка в контур компании (On-premise), использование РФ моделей (GigaChat и др.)',
     color: 'text-purple-400',
     bgColor: 'bg-purple-500/10',
   },
@@ -43,15 +57,11 @@ export default function Slide10Security() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-6">
-            <Shield className="w-4 h-4" />
-            <span className="text-sm font-medium">Безопасность</span>
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Безопасность данных — наш приоритет
+          ФЗ-152 и защита персональных данных
           </h2>
           <p className="text-xl text-slate-600">
-            Соответствие ФЗ-152 и защита персональных данных
+          Безопасность данных — наш приоритет
           </p>
         </motion.div>
 
@@ -77,26 +87,30 @@ export default function Slide10Security() {
                     <div className={`p-3 rounded-xl ${point.bgColor}`}>
                       <Icon className={`w-6 h-6 ${point.color}`} />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="text-lg font-semibold text-slate-900 mb-2">{point.title}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">{point.description}</p>
+                      <p className="text-slate-600 text-sm leading-relaxed mb-3">{point.description}</p>
+                      {point.links && (
+                        <div className="space-y-2 mt-3">
+                          {point.links.map((link, linkIndex) => (
+                            <a
+                              key={linkIndex}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-emerald-600 hover:text-emerald-400 transition-colors flex items-center gap-1.5 group"
+                            >
+                              <span>{link.text}</span>
+                              <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100" />
+                            </a>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>
               )
             })}
-
-            {/* Registry link */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-2 text-sm text-slate-600 pl-2"
-            >
-              <CheckCircle className="w-4 h-4 text-emerald-400" />
-              <span>Проверить в реестре операторов ПДн</span>
-              <ExternalLink className="w-3 h-3" />
-            </motion.div>
           </motion.div>
 
           {/* Right: Masking visualization */}

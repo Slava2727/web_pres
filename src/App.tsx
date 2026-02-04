@@ -14,6 +14,7 @@ import Slide08Technology from './slides/Slide08Technology'
 import Slide09Integrations from './slides/Slide09Integrations'
 import Slide10Security from './slides/Slide10Security'
 import Slide11CTA from './slides/Slide11CTA'
+import Slide12AiTransformation from './slides/Slide12AiTransformation'
 
 const slides = [
   Slide01Title,
@@ -26,6 +27,7 @@ const slides = [
   Slide08Technology,
   Slide07CaseAcolyte,
   Slide10Security,
+  Slide12AiTransformation,
   Slide11CTA,
 ]
 
