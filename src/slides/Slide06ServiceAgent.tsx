@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { HeadphonesIcon, Database, Settings } from 'lucide-react'
+import { Database, Settings } from 'lucide-react'
 
 import serviceAgentOrder from '../assets/service_agent_order.jpeg'
 import serviceAgentGift from '../assets/service_agent_gift.jpeg'

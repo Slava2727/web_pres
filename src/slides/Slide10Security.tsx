@@ -39,11 +39,6 @@ const securityPoints = [
   },
 ]
 
-const maskingExample = {
-  before: 'Моя почта slava@mail.ru',
-  after: 'Моя почта [ID_EMAIL_7f3d]',
-}
-
 export default function Slide10Security() {
   return (
     <div className="min-h-full w-full bg-gradient-to-br from-white via-slate-50 to-slate-100 flex items-center justify-center relative overflow-hidden pb-24">

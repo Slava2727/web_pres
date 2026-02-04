@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ShoppingCart, Search, Gift, Calculator, CreditCard, MessageCircle, ArrowRight } from 'lucide-react'
+import { ShoppingCart, Search, Gift, CreditCard, ArrowRight } from 'lucide-react'
 
 const features = [
   {
