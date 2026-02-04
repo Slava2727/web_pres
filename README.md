@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# Naimi.AI — веб‑презентация (слайды)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это **веб-приложение для презентаций**, где контент показывается как **последовательность “слайдов”** (страниц) с простой навигацией. Проект задуман как замена PowerPoint/Keynote для демо продукта Naimi.AI.
 
-Currently, two official plugins are available:
+## Суть
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Одна функция**: показывать слайды один за другим (без меню/футера/страниц сайта).
+- **Редактируемость**: каждый слайд — отдельный файл, чтобы легко менять текст/блоки точечно.
+- **Дизайн в приоритете**: современная визуальная подача, плавные переходы.
 
-## React Compiler
+Контент и структура презентации основаны на файлах в `info/` (например, `info/структура презы джемини.md`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Стек
 
-## Expanding the ESLint configuration
+- **Vite + React + TypeScript**: быстрый dev-сервер, удобная архитектура компонентов.
+- **Tailwind CSS**: быстрый, гибкий дизайн без “тяжёлых” UI-фреймворков.
+- **Framer Motion**: анимации переходов между слайдами.
+- **lucide-react**: иконки.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Навигация в презентации
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Кнопки**: назад/вперёд/в начало/в конец + индикаторы слайдов.
+- **Клавиатура**:
+  - `→` / `Space` / `Enter` — следующий слайд
+  - `←` / `Backspace` — предыдущий слайд
+  - `Home` — в начало
+  - `End` — в конец
+- **Скролл**: если контент слайда не помещается по высоте, появляется вертикальная прокрутка (скролл только при необходимости).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Где лежат слайды (главное для редактирования)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Слайды находятся в `src/slides/` и именуются по порядку:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/slides/Slide01Title.tsx`
+- `src/slides/Slide02Problem.tsx`
+- `src/slides/Slide03Solution.tsx`
+- `src/slides/Slide04Architecture.tsx`
+- `src/slides/Slide05SalesAgent.tsx`
+- `src/slides/Slide06ServiceAgent.tsx`
+- `src/slides/Slide09Integrations.tsx`
+- `src/slides/Slide08Technology.tsx`
+- `src/slides/Slide07CaseAcolyte.tsx`
+- `src/slides/Slide10Security.tsx`
+- `src/slides/Slide11CTA.tsx`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Роутинг/порядок слайдов задаётся в `src/App.tsx` в массиве `slides`.
+
+## Как добавить/удалить/переставить слайды
+
+1) Создайте новый компонент-слайд в `src/slides/` (по аналогии с существующими).
+2) Импортируйте его в `src/App.tsx`.
+3) Добавьте/переставьте в массиве `slides` — это и есть порядок показа.
+
+## Дизайн/верстка: важные правила проекта
+
+- Слайды рассчитываются на **полноэкранный режим**.
+- Навигационная панель фиксирована снизу, поэтому у слайдов предусмотрен нижний отступ (чтобы контент не перекрывался).
+- Если слайд получается “длинным” — **это нормально**, он должен скроллиться.
+

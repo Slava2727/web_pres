@@ -22,9 +22,9 @@ const slides = [
   Slide04Architecture,
   Slide05SalesAgent,
   Slide06ServiceAgent,
-  Slide07CaseAcolyte,
-  Slide08Technology,
   Slide09Integrations,
+  Slide08Technology,
+  Slide07CaseAcolyte,
   Slide10Security,
   Slide11CTA,
 ]
