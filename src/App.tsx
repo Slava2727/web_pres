@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
 
@@ -49,6 +49,7 @@ const slideVariants = {
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0)
+  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
 
   const goToSlide = useCallback((index: number) => {
     if (index >= 0 && index < slides.length) {
@@ -112,6 +113,36 @@ function App() {
   }, [nextSlide, prevSlide, goToFirst, goToLast])
 
   const CurrentSlideComponent = slides[currentSlide]
+  const handleTouchStart = (event: React.TouchEvent) => {
+    const touch = event.touches[0]
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+      time: Date.now(),
+    }
+  }
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    const start = touchStartRef.current
+    if (!start) return
+
+    const touch = event.changedTouches[0]
+    const dx = touch.clientX - start.x
+    const dy = touch.clientY - start.y
+    const absDx = Math.abs(dx)
+    const absDy = Math.abs(dy)
+    const elapsed = Date.now() - start.time
+
+    if (absDx > 60 && absDx > absDy * 1.2 && elapsed < 600) {
+      if (dx < 0) {
+        nextSlide()
+      } else {
+        prevSlide()
+      }
+    }
+
+    touchStartRef.current = null
+  }
 
   return (
     <div className="h-screen w-screen bg-slate-50 overflow-hidden relative">
@@ -130,6 +161,8 @@ function App() {
               opacity: { duration: 0.2 },
             }}
             className="absolute inset-0 overflow-y-auto overflow-x-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <CurrentSlideComponent />
           </motion.div>
@@ -137,7 +170,7 @@ function App() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-0 left-0 right-0 z-50">
+      <div className="absolute bottom-0 left-0 right-0 z-50 hidden md:block">
         <div className="flex items-center justify-between px-8 py-6 bg-gradient-to-t from-slate-100/90 to-transparent">
           {/* Left side: First/Previous */}
           <div className="flex items-center gap-2">
@@ -197,8 +230,53 @@ function App() {
         </div>
       </div>
 
+      {/* Mobile Navigation Controls */}
+      <div className="absolute bottom-0 left-0 right-0 z-50 md:hidden">
+        <div className="flex items-center justify-between px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-slate-100/95 to-transparent">
+          <button
+            onClick={goToFirst}
+            disabled={currentSlide === 0}
+            className="p-2 rounded-lg bg-white/80 border border-slate-200/80 backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
+            title="В начало"
+            aria-label="В начало"
+          >
+            <ChevronsLeft className="w-5 h-5 text-slate-900" />
+          </button>
+          <button
+            onClick={prevSlide}
+            disabled={currentSlide === 0}
+            className="p-2 rounded-lg bg-white/80 border border-slate-200/80 backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
+            title="Назад"
+            aria-label="Назад"
+          >
+            <ChevronLeft className="w-5 h-5 text-slate-900" />
+          </button>
+          <div className="px-3 py-1.5 rounded-full bg-white/80 border border-slate-200/80 backdrop-blur-sm text-slate-600 text-xs font-medium">
+            {currentSlide + 1} / {slides.length}
+          </div>
+          <button
+            onClick={nextSlide}
+            disabled={currentSlide === slides.length - 1}
+            className="p-2 rounded-lg bg-white/80 border border-slate-200/80 backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
+            title="Вперёд"
+            aria-label="Вперёд"
+          >
+            <ChevronRight className="w-5 h-5 text-slate-900" />
+          </button>
+          <button
+            onClick={goToLast}
+            disabled={currentSlide === slides.length - 1}
+            className="p-2 rounded-lg bg-white/80 border border-slate-200/80 backdrop-blur-sm disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200"
+            title="В конец"
+            aria-label="В конец"
+          >
+            <ChevronsRight className="w-5 h-5 text-slate-900" />
+          </button>
+        </div>
+      </div>
+
       {/* Slide counter */}
-      <div className="absolute top-6 right-8 z-50">
+      <div className="absolute top-6 right-8 z-50 hidden md:block">
         <div className="px-4 py-2 rounded-full bg-white/80 border border-slate-200/80 backdrop-blur-sm text-slate-600 text-sm font-medium">
           {currentSlide + 1} / {slides.length}
         </div>
