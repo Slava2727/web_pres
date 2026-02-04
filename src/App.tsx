@@ -49,6 +49,7 @@ const slideVariants = {
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState(0)
+  const [showSwipeHint, setShowSwipeHint] = useState(false)
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
 
   const goToSlide = useCallback((index: number) => {
@@ -111,6 +112,20 @@ function App() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [nextSlide, prevSlide, goToFirst, goToLast])
+
+  useEffect(() => {
+    if (currentSlide !== 0) {
+      setShowSwipeHint(false)
+      return
+    }
+
+    setShowSwipeHint(true)
+    const timeout = window.setTimeout(() => {
+      setShowSwipeHint(false)
+    }, 2500)
+
+    return () => window.clearTimeout(timeout)
+  }, [currentSlide])
 
   const CurrentSlideComponent = slides[currentSlide]
   const handleTouchStart = (event: React.TouchEvent) => {
@@ -230,9 +245,39 @@ function App() {
         </div>
       </div>
 
+      {/* Mobile swipe hint (first slide only) */}
+      <AnimatePresence>
+        {showSwipeHint && (
+          <motion.div
+            className="absolute top-20 left-1/2 z-40 -translate-x-1/2 md:hidden pointer-events-none"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-white/90 border border-slate-200/80 backdrop-blur-sm text-slate-700 text-base font-semibold shadow-md">
+              <div className="relative h-6 w-20">
+                <div className="absolute left-1/2 top-1/2 h-[2px] w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-slate-200/0 via-slate-300/70 to-slate-200/0" />
+                <motion.div
+                  className="absolute top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-white shadow-[0_4px_10px_rgba(15,23,42,0.25)] border border-slate-200"
+                  animate={{ x: [4, 44, 4], scale: [1, 1.06, 1] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <motion.div
+                  className="absolute top-1/2 h-7 w-7 -translate-y-1/2 rounded-full border border-slate-300/70"
+                  animate={{ x: [2, 42, 2], opacity: [0, 0.45, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              </div>
+              <span>Свайп →</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Mobile Navigation Controls */}
-      <div className="absolute bottom-0 left-0 right-0 z-50 md:hidden">
-        <div className="flex items-center justify-between px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-slate-100/95 to-transparent">
+      <div className="absolute left-0 right-0 z-50 md:hidden bottom-[calc(0.75rem+env(safe-area-inset-bottom))]">
+        <div className="flex items-center justify-between px-4 pt-3 pb-3 bg-gradient-to-t from-slate-100/95 to-transparent">
           <button
             onClick={goToFirst}
             disabled={currentSlide === 0}
